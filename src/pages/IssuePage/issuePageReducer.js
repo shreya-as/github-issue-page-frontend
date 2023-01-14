@@ -1,7 +1,7 @@
 import { issuePageConstants } from "./constants";
 
 const initialState = {
-  loading: false,
+  loadingIssue: false,
   error: false,
   issues: [],
 };
@@ -9,20 +9,20 @@ const issuePageReducer = (state, action) => {
   switch (action.type) {
     case issuePageConstants.GET_ISSUE_REQUEST: {
       return {
-        loading: true,
+        loadingIssue: true,
         error: false,
       };
     }
     case issuePageConstants.GET_ISSUE_SUCCESS: {
       return {
-        loading: false,
+        loadingIssue: false,
         error: false,
         issues: action.payload.data,
       };
     }
     case issuePageConstants.GET_ISSUE_FAIL: {
       return {
-        loading: false,
+        loadingIssue: false,
         error: true,
       };
     }
