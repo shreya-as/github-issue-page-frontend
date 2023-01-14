@@ -10,7 +10,7 @@ const AppRoutes = () => {
           <Route exact path="/">
             <IssueListingPage />
           </Route>
-          <Route exact path="/detail">
+          <Route exact path="/issues/:id">
             <IssueDetailPage />
           </Route>
         </Switch>

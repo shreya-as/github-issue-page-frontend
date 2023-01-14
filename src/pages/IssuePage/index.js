@@ -98,7 +98,7 @@ const IssueListingPage = () => {
                 <div className="issue__details" key={id}>
                   <div className="title__container">
                     <TbCircleDot className="issue__svg" />
-                    <Link to="/detail">
+                    <Link to={`/issues/${number}`}>
                       <h1 className="issue__title">{title}</h1>
                     </Link>
                     {/* display labels */}
