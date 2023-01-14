@@ -2,6 +2,7 @@
 .search__container {
   position: relative;
   margin: 1rem;
+  max-width: 600px;
 }
 /* search icon */
 .search__icon {
