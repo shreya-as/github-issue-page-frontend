@@ -6,12 +6,12 @@ module.exports = {
     path: path.join(__dirname, "/dist"), // the bundle output path
     filename: "bundle.js", // the name of the bundle
   },
-  devtool: "source-map",
   target: "web",
   devServer: {
     historyApiFallback: true,
     port: "3000", // port of dev server
     open: true, //opens the browser after server is successfully started
+
     hot: true, // enabling HMR.
     liveReload: true,
   },
