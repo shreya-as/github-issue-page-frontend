@@ -45,6 +45,7 @@ const IssueListingPage = () => {
           <TbCircleDot className="issue__svg" />
           Issues
         </div>
+        {/* display loader if loadingIssue is true else display issues data */}
         {loadingIssue ? (
           <Loader />
         ) : (
