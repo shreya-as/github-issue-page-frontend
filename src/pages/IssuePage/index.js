@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { TbCircleDot } from "react-icons/tb";
 import AppSearchBar from "../../components/AppSearchBar";
 import "./issue-page.css";
+import { initialState, issuePageReducer } from "./issuePageReducer";
 const IssueListingPage = () => {
+  //define state of issue listing page
+  const [state, dispatch] = useReducer(issuePageReducer, initialState);
   return (
     <>
       {/* search bar */}
