@@ -1,0 +1,5 @@
+export const issuePageConstants = {
+  GET_ISSUE_REQUEST: "GET_ISSUE_REQUEST",
+  GET_ISSUE_SUCCESS: "GET_ISSUE_SUCCESS",
+  GET_ISSUE_FAIL: "GET_ISSUE_FAIL",
+};

@@ -1,11 +1,33 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { TbCircleDot } from "react-icons/tb";
+import axios from "axios";
 import AppSearchBar from "../../components/AppSearchBar";
-import "./issue-page.css";
+import { issuePageConstants } from "./constants";
 import { initialState, issuePageReducer } from "./issuePageReducer";
+import "./issue-page.css";
 const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
+  console.log(state, "state");
+  // get issue data
+  const handleGetIssue = async () => {
+    dispatch({ type: issuePageConstants.GET_ISSUE_REQUEST });
+    try {
+      const response = await axios.get(
+        "https://api.github.com/repos/facebook/react/issues"
+      );
+      dispatch({
+        type: issuePageConstants.GET_ISSUE_SUCCESS,
+        payload: response,
+      });
+    } catch (error) {
+      console.log("error", error);
+      dispatch({ type: issuePageConstants.GET_ISSUE_FAIL });
+    }
+  };
+  useEffect(() => {
+    handleGetIssue();
+  }, []);
   return (
     <>
       {/* search bar */}
