@@ -93,7 +93,6 @@ const IssueListingPage = () => {
                 created_at,
                 user: { login },
               } = issue;
-              console.log(labels, "labels");
               return (
                 <div className="issue__details" key={id}>
                   <div className="title__container">

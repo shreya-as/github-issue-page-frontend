@@ -3,7 +3,7 @@ import "./footer.css";
 const Footer = () => {
   return (
     <>
-      <div class="footer">© 2023 GitHub, Inc.</div>
+      <div className="footer">© 2023 GitHub, Inc.</div>
     </>
   );
 };
