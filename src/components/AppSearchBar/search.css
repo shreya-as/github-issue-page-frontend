@@ -1,0 +1,24 @@
+/* search container */
+.search__container {
+  position: relative;
+  margin: 1rem;
+}
+/* search icon */
+.search__icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+/* search container input */
+.search__container input {
+  background-color: #f6f8fa;
+  border: 1px solid #d0d7de;
+  font-size: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 0 rgba(208, 215, 222, 0.2);
+  padding: 8px 12px;
+  padding-left: 32px;
+}
+.search__container input[type="text"]:focus {
+  outline: 2px solid rgb(75, 75, 213);
+}

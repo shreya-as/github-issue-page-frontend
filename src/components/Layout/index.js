@@ -8,7 +8,10 @@ const Layout = () => {
     <>
       {/* header */}
       <Header />
+
+      {/* search bar */}
       <AppSearchBar />
+
       {/* footer */}
       <Footer />
     </>
