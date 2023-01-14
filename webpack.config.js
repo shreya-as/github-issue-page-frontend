@@ -5,7 +5,6 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist"), // the bundle output path
     filename: "bundle.js", // the name of the bundle
-    sourceMapFilename: "bundle.js.map",
   },
   devtool: "source-map",
   target: "web",
