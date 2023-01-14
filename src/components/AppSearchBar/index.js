@@ -1,12 +1,12 @@
 import React from "react";
-
+import { FaSearch } from "react-icons/fa";
 const AppSearchBar = () => {
   return (
     <>
       <form>
         <div className="search__container">
           <input type="text" placeholder="Search issues..." />
-          <FiSearch className="search" />
+          <FaSearch className="search" />
         </div>
       </form>
     </>

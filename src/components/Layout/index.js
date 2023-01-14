@@ -1,4 +1,5 @@
 import React from "react";
+import AppSearchBar from "../AppSearchBar";
 import Footer from "../Footer";
 import Header from "../Header";
 
@@ -7,6 +8,7 @@ const Layout = () => {
     <>
       {/* header */}
       <Header />
+      <AppSearchBar />
       {/* footer */}
       <Footer />
     </>
