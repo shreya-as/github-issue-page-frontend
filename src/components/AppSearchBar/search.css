@@ -19,6 +19,7 @@
   padding: 8px 12px;
   padding-left: 32px;
 }
-.search__container input[type="text"]:focus {
+/* search container input is focused*/
+.search__container input:focus {
   outline: 2px solid rgb(75, 75, 213);
 }
