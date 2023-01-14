@@ -8,6 +8,7 @@ import "./issue-page.css";
 const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
+  const { issues } = state;
   console.log(state, "state");
   // get issue data
   const handleGetIssue = async () => {
@@ -25,7 +26,9 @@ const IssueListingPage = () => {
       dispatch({ type: issuePageConstants.GET_ISSUE_FAIL });
     }
   };
+  // run effect
   useEffect(() => {
+    // call function to get list of issues
     handleGetIssue();
   }, []);
   return (
@@ -36,40 +39,37 @@ const IssueListingPage = () => {
         {/* search bar */}
         <div className="issue__header">
           <TbCircleDot className="issue__svg" />
-          901 open
+          Issues
         </div>
-        <div className="issue__details">
-          <div className="title__container">
-            <TbCircleDot className="issue__svg" />
-            <h1 className="issue__title">
-              Feat(renderToPipeableStream): Allow passing crossorigin attribute
-              on bootstrapScripts
-            </h1>
-            <span className="issue__status">Open</span>
-          </div>
-          <div className="issue__data">
-            <span className="issue__number">#123</span>
-            <span className="issue__author">
-              Opened by <a href="#">shreya</a>
-            </span>
-          </div>
-        </div>
-        <div className="issue__details">
-          <div className="title__container">
-            <TbCircleDot className="issue__svg" />
-            <h1 className="issue__title">
-              Feat(renderToPipeableStream): Allow passing crossorigin attribute
-              on bootstrapScripts
-            </h1>
-            <span className="issue__status">Open</span>
-          </div>
-          <div className="issue__data">
-            <span className="issue__number">#123</span>
-            <span className="issue__author">
-              Opened by <a href="#">shreya</a>
-            </span>
-          </div>
-        </div>
+        {issues?.map((issue) => {
+          const { id, title, labels } = issue;
+          console.log(labels, "labels");
+          return (
+            <div className="issue__details" key={id}>
+              <div className="title__container">
+                <TbCircleDot className="issue__svg" />
+                <h1 className="issue__title">{title}</h1>
+                {labels?.map((label) => {
+                  return (
+                    <span
+                      key={label?.id}
+                      className="issue__status"
+                      style={{ backgroundColor: `#${label?.color}` }}
+                    >
+                      {label?.name}
+                    </span>
+                  );
+                })}
+              </div>
+              <div className="issue__data">
+                <span className="issue__number">#123</span>
+                <span className="issue__author">
+                  Opened by <a href="#">shreya</a>
+                </span>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
