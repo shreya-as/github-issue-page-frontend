@@ -59,3 +59,10 @@
   color: #28a745;
   margin-right: 3px;
 }
+/* Issue number */
+.issue__number {
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+}

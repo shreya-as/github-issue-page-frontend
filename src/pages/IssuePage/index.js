@@ -10,7 +10,7 @@ const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
   const { issues, loadingIssue } = state;
-  console.log(loadingIssue, "loadingIssue");
+  console.log(issues, "issues");
   // get issue data
   const handleGetIssue = async () => {
     dispatch({ type: issuePageConstants.GET_ISSUE_REQUEST });
@@ -39,18 +39,24 @@ const IssueListingPage = () => {
       {/* search bar */}
       <AppSearchBar />
 
-      {loadingIssue ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="issue__container">
-            {/* search bar */}
-            <div className="issue__header">
-              <TbCircleDot className="issue__svg" />
-              Issues
-            </div>
+      <div className="issue__container">
+        {/* search bar */}
+        <div className="issue__header">
+          <TbCircleDot className="issue__svg" />
+          Issues
+        </div>
+        {loadingIssue ? (
+          <Loader />
+        ) : (
+          <>
             {issues?.map((issue) => {
-              const { id, title, labels } = issue;
+              const {
+                id,
+                title,
+                labels,
+                number,
+                user: { login },
+              } = issue;
               console.log(labels, "labels");
               return (
                 <div className="issue__details" key={id}>
@@ -78,17 +84,17 @@ const IssueListingPage = () => {
                     })}
                   </div>
                   <div className="issue__data">
-                    <span className="issue__number">#123</span>
+                    <span className="issue__number">{`#${number}`}</span>
                     <span className="issue__author">
-                      Opened by <a href="#">shreya</a>
+                      Opened by <a href="#">{login}</a>
                     </span>
                   </div>
                 </div>
               );
             })}
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </>
   );
 };
