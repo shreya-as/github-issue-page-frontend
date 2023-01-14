@@ -3,15 +3,13 @@ import AppSearchBar from "../AppSearchBar";
 import Footer from "../Footer";
 import Header from "../Header";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <>
       {/* header */}
       <Header />
 
-      {/* search bar */}
-      <AppSearchBar />
-
+      {children}
       {/* footer */}
       <Footer />
     </>
