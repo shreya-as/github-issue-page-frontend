@@ -6,6 +6,7 @@ import { issuePageConstants } from "./constants";
 import { initialState, issuePageReducer } from "./issuePageReducer";
 import "./issue-page.css";
 import Loader from "../../components/Loader";
+import { Link } from "react-router-dom";
 const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
@@ -97,7 +98,9 @@ const IssueListingPage = () => {
                 <div className="issue__details" key={id}>
                   <div className="title__container">
                     <TbCircleDot className="issue__svg" />
-                    <h1 className="issue__title">{title}</h1>
+                    <Link to="/detail">
+                      <h1 className="issue__title">{title}</h1>
+                    </Link>
                     {/* display labels */}
                     {labels?.map((label) => {
                       return (
