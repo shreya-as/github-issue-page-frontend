@@ -31,6 +31,8 @@ const IssueListingPage = () => {
     // call function to get list of issues
     handleGetIssue();
   }, []);
+  // color array for styling
+  const labelColor = ["b60205", "9149d1"];
   return (
     <>
       {/* search bar */}
@@ -49,12 +51,18 @@ const IssueListingPage = () => {
               <div className="title__container">
                 <TbCircleDot className="issue__svg" />
                 <h1 className="issue__title">{title}</h1>
+                {/* display labels */}
                 {labels?.map((label) => {
                   return (
                     <span
                       key={label?.id}
                       className="issue__status"
-                      style={{ backgroundColor: `#${label?.color}` }}
+                      style={{
+                        backgroundColor: `#${label?.color}`,
+                        color: `${
+                          labelColor?.includes(label?.color) ? "white" : "black"
+                        }`,
+                      }}
                     >
                       {label?.name}
                     </span>

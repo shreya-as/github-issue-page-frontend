@@ -45,8 +45,9 @@
   text-decoration: none;
   margin-right: 10px;
 }
+
+/* issue status */
 .issue__status {
-  /* color: #fff; */
   padding: 2px 4px;
   border-radius: 8px;
   margin-left: 10px;
