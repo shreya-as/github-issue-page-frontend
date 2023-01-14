@@ -32,8 +32,42 @@ const IssueListingPage = () => {
     // call function to get list of issues
     handleGetIssue();
   }, []);
-  // color array for styling
+  // color for array for styling
   const labelColor = ["b60205", "9149d1"];
+
+  // calculate time
+  const getIssueCreatedTime = (date) => {
+    // Create a new Date object from the input date
+    const updatedDate = new Date(date);
+    // Get the current date
+    const currentDate = new Date();
+
+    // Calculate the elapsed time in milliseconds
+    const elapsedTime = currentDate - updatedDate;
+
+    // Calculate the number of hours, days, weeks, and months that have passed
+    const elapsedMinutes = Math.floor(elapsedTime / (1000 * 60));
+    const elapsedHours = Math.floor(elapsedTime / (1000 * 60 * 60));
+    const elapsedDays = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
+    const elapsedWeeks = Math.floor(elapsedTime / (1000 * 60 * 60 * 24 * 7));
+    const elapsedMonths = Math.floor(elapsedTime / (1000 * 60 * 60 * 24 * 30));
+    return elapsedTime < 0
+      ? `now.`
+      : elapsedMinutes < 60
+      ? `${elapsedMinutes} minute${elapsedMinutes === 1 ? "" : "s"}ago`
+      : elapsedHours < 24
+      ? `${elapsedHours} hour(s) ago`
+      : elapsedDays < 7
+      ? elapsedDays === 1
+        ? "yesterday"
+        : `${elapsedDays} days ago`
+      : elapsedWeeks < 4
+      ? `${elapsedWeeks} week${elapsedWeeks === 1 ? "" : "s"} ago`
+      : elapsedMonths === 1
+      ? `${elapsedMonths} month ago`
+      : `on ${updatedDate.toLocaleDateString()}`;
+  };
+
   return (
     <>
       {/* search bar */}
@@ -56,6 +90,7 @@ const IssueListingPage = () => {
                 title,
                 labels,
                 number,
+                created_at,
                 user: { login },
               } = issue;
               console.log(labels, "labels");
@@ -87,7 +122,7 @@ const IssueListingPage = () => {
                   <div className="issue__data">
                     <span className="issue__number">{`#${number}`}</span>
                     <span className="issue__author">
-                      Opened by <a href="#">{login}</a>
+                      opened {getIssueCreatedTime(created_at)} by {login}
                     </span>
                   </div>
                 </div>
