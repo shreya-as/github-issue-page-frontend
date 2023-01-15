@@ -21,7 +21,7 @@ const IssueDetailPage = () => {
     dispatch({ type: issueDetailsConstants.GET_ISSUE_DETAILS_REQUEST });
     try {
       const response = await axios.get(
-        `https://api.github.com/repos/facebook/react/issues/${id}`
+        `https://api.github.com/repos/facebook/react/issues/19500`
       );
       dispatch({
         type: issueDetailsConstants.GET_ISSUE_DETAILS_SUCCESS,

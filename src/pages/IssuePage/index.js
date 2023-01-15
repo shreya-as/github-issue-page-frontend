@@ -4,9 +4,9 @@ import axios from "axios";
 import AppSearchBar from "../../components/AppSearchBar";
 import { issuePageConstants } from "./constants";
 import { initialState, issuePageReducer } from "./issuePageReducer";
-import "./issue-page.css";
 import Loader from "../../components/Loader";
 import { Link } from "react-router-dom";
+import "./issuePage.css";
 const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
@@ -92,40 +92,50 @@ const IssueListingPage = () => {
                 labels,
                 number,
                 created_at,
+                comments,
                 user: { login },
               } = issue;
               return (
                 <div className="issue__details" key={id}>
-                  <div className="title__container">
-                    <TbCircleDot className="issue__svg" />
-                    <Link to={`issues/${number}`}>
-                      <h1 className="issue__title">{title}</h1>
-                    </Link>
-                    {/* display labels */}
-                    {labels?.map((label) => {
-                      return (
-                        <span
-                          key={label?.id}
-                          className="issue__status"
-                          style={{
-                            backgroundColor: `#${label?.color}`,
-                            color: `${
-                              labelColor?.includes(label?.color)
-                                ? "white"
-                                : "black"
-                            }`,
-                          }}
-                        >
-                          {label?.name}
-                        </span>
-                      );
-                    })}
-                  </div>
-                  <div className="issue__data">
-                    <span className="issue__number">{`#${number}`}</span>
-                    <span className="issue__author">
-                      opened {getIssueCreatedTime(created_at)} by {login}
-                    </span>
+                  <TbCircleDot className="issue__svg" />
+                  <div>
+                    <div className="title__container">
+                      {" "}
+                      <Link to={`issues/${number}`}>
+                        <h1 className="issue__title">{title}</h1>
+                      </Link>
+                      {/* display labels */}
+                      {labels?.map((label) => {
+                        return (
+                          <span
+                            key={label?.id}
+                            className="issue__status"
+                            style={{
+                              backgroundColor: `#${label?.color}`,
+                              color: `${
+                                labelColor?.includes(label?.color)
+                                  ? "white"
+                                  : "black"
+                              }`,
+                            }}
+                          >
+                            {label?.name}
+                          </span>
+                        );
+                      })}
+                    </div>
+
+                    <div className="issue__data">
+                      <span className="issue__number">{`#${number}`}</span>
+                      <span className="issue__author">
+                        opened {getIssueCreatedTime(created_at)} by {login}
+                      </span>
+                    </div>
+                    <div className="comment__container">
+                      <span className="issue__comment">
+                        Comments: {comments}
+                      </span>
+                    </div>
                   </div>
                 </div>
               );

@@ -9,6 +9,7 @@
   border-radius: 6px;
 }
 .issue__details {
+  display: flex;
   border-top: 1px solid #afb8c1;
 }
 
@@ -16,18 +17,21 @@
   display: flex;
   align-items: center;
   font-size: 16px;
-  margin-left: 16px;
 }
 /* Issue Header */
 .issue__header {
   display: flex;
   align-items: center;
-  padding: 16px;
+  padding: 16px 0;
   font-weight: bold;
 }
-
+/* style a tag */
+.title__container a {
+  text-decoration: none;
+}
 /* Issue Title */
 .issue__title {
+  color: #24292f;
   font-size: 16px;
   font-weight: 600;
 }
@@ -36,7 +40,6 @@
 .issue__data {
   font-size: 18px;
   color: #586069;
-  margin-left: 16px;
 }
 
 /* Issue Author */
@@ -57,7 +60,7 @@
 .issue__svg {
   font-size: 20px;
   color: #28a745;
-  margin-right: 3px;
+  margin: 12px;
 }
 /* Issue number */
 .issue__number {
@@ -65,4 +68,11 @@
   font-size: 18px;
   font-weight: bold;
   color: #555;
+}
+/* issue comment */
+.comment__container {
+  /* margin-top: 7px; */
+  font-weight: bold;
+  color: #555;
+  margin: 3px 0;
 }
