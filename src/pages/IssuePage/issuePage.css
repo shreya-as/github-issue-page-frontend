@@ -8,11 +8,14 @@
   border: 1px solid #d0d7de;
   border-radius: 6px;
 }
+
+/* Issue Details */
 .issue__details {
   display: flex;
   border-top: 1px solid #afb8c1;
 }
 
+/* Title Container */
 .title__container {
   display: flex;
   align-items: center;
@@ -71,7 +74,6 @@
 }
 /* issue comment */
 .comment__container {
-  /* margin-top: 7px; */
   font-weight: bold;
   color: #555;
   margin: 3px 0;

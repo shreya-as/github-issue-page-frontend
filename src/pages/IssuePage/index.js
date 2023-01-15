@@ -57,7 +57,7 @@ const IssueListingPage = () => {
       : elapsedMinutes < 60
       ? `${elapsedMinutes} minute${elapsedMinutes === 1 ? "" : "s"}ago`
       : elapsedHours < 24
-      ? `${elapsedHours} hour(s) ago`
+      ? `${elapsedHours} hour${elapsedHours === 1 ? "" : "s"} ago`
       : elapsedDays < 7
       ? elapsedDays === 1
         ? "yesterday"

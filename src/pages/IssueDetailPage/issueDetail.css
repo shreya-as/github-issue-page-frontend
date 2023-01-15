@@ -1,0 +1,28 @@
+/* Container for the list of issues */
+.detail__container {
+  max-width: 1280px;
+  margin: auto;
+  color: black;
+}
+/* detail title */
+.detail__title {
+  color: #24292f;
+  font-size: 30px;
+}
+/* Title Container */
+.title__container {
+  display: flex;
+  line-height: 1.2;
+}
+/* Issue number */
+.issue__number {
+  margin-left: 10px;
+  font-size: 30px;
+  color: #555;
+}
+/* avatar img */
+.avatar img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
