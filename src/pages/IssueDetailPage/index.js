@@ -39,9 +39,9 @@ const IssueDetailPage = () => {
   return (
     <>
       <div className="detail__container">
-        <div className="title__container">
+        <div className="detail__title--container">
           <span className="detail__title">{issueDetails?.title}</span>
-          <span className="issue__number">#{issueDetails?.number}</span>
+          <span className="detail__issue--number">#{issueDetails?.number}</span>
         </div>
         {/* comment section */}
         <div className="comment__container">

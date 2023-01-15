@@ -10,12 +10,12 @@
   font-size: 30px;
 }
 /* Title Container */
-.title__container {
+.detail__title--container {
   display: flex;
   line-height: 1.2;
 }
 /* Issue number */
-.issue__number {
+.detail__issue--number {
   margin-left: 10px;
   font-size: 30px;
   color: #555;
