@@ -12,6 +12,7 @@ const IssueDetailPage = () => {
     issueDetailsReducer,
     initialIssueDetailsState
   );
+  console.log(state, "state");
   // use the `useParams` hook here to access
   // the dynamic pieces of the URL.
   let { id } = useParams();
