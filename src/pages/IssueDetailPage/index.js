@@ -56,7 +56,7 @@ const IssueDetailPage = () => {
           <div className="comment__section">
             <div className="comment__header">
               <strong>{issueDetails?.user?.login}</strong>
-              <span>{issueDetails?.user?.login}</span>
+              {/* <span>{issueDetails?.user?.login}</span> */}
             </div>
             {/* <div
               className="comment__body"

@@ -135,10 +135,8 @@ const IssueListingPage = () => {
                         opened {getIssueCreatedTime(created_at)} by {login}
                       </span>
                     </div>
-                    <div className="comment__container">
-                      <span className="issue__comment">
-                        Comments: {comments}
-                      </span>
+                    <div className="issue__comment">
+                      <span>Comments: {comments}</span>
                     </div>
                   </div>
                 </div>
