@@ -20,9 +20,45 @@
   font-size: 30px;
   color: #555;
 }
+
+/* Container for the list of issues */
+.comment__header {
+  display: flex;
+  /* border: 1px solid #d0d7de; */
+  border-radius: 6px;
+  width: 100%;
+  padding: 10px;
+  background-color: #f6f8fa;
+}
+/* comment container */
+.comment__container {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+/* avatar */
+.avatar {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 /* avatar img */
 .avatar img {
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 100%;
+  height: auto;
+}
+
+.comment__section {
+  flex: 1;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  margin-right: 16px;
+}
+.comment__body {
+  padding: 10px;
+  border-top: 1px solid #d0d7de;
 }

@@ -7,6 +7,8 @@ import {
   issueDetailsReducer,
 } from "./issueDetailsReducer";
 import "./issueDetail.css";
+import ReactMarkdown from "react-markdown";
+
 const IssueDetailPage = () => {
   const [state, dispatch] = useReducer(
     issueDetailsReducer,
@@ -38,23 +40,35 @@ const IssueDetailPage = () => {
   }, []);
   return (
     <>
+      {/* 25874 */}
+      {/* issue detail container */}
       <div className="detail__container">
         <div className="detail__title--container">
           <span className="detail__title">{issueDetails?.title}</span>
           <span className="detail__issue--number">#{issueDetails?.number}</span>
         </div>
+
         {/* comment section */}
         <div className="comment__container">
           <div className="avatar">
-            <img
-              src={issueDetails?.user?.avatar_url}
-              loading="lazy"
-              alt="image"
-            ></img>
+            <img src={issueDetails?.user?.avatar_url} alt="Avatar" />
           </div>
-          <div className="comment">
-            <div className="comment__header"></div>
-            <div className="comment__section"></div>
+          <div className="comment__section">
+            <div className="comment__header">
+              <strong>{issueDetails?.user?.login}</strong>
+              <span>{issueDetails?.user?.login}</span>
+            </div>
+            {/* <div
+              className="comment__body"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(issueDetails?.body ?? ""),
+              }}
+            ></div> */}
+            <div className="comment__body">
+              <ReactMarkdown>
+                {issueDetails?.body?.replace(/<!--[\s\S]*?-->/g, "")}
+              </ReactMarkdown>
+            </div>
           </div>
         </div>
       </div>
