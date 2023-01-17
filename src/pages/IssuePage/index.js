@@ -2,11 +2,12 @@ import React, { useEffect, useReducer } from "react";
 import { TbCircleDot } from "react-icons/tb";
 import axios from "axios";
 import AppSearchBar from "../../components/AppSearchBar";
-import { issuePageConstants } from "./constants";
-import { initialState, issuePageReducer } from "./issuePageReducer";
+import { issuePageConstants } from "./state/constants";
+import { initialState, issuePageReducer } from "./state/issuePageReducer";
 import Loader from "../../components/Loader";
 import { Link } from "react-router-dom";
 import "./issuePage.css";
+import Pagination from "../../components/Pagination";
 const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
@@ -145,6 +146,7 @@ const IssueListingPage = () => {
           </>
         )}
       </div>
+      <Pagination />
     </>
   );
 };

@@ -1,0 +1,40 @@
+/* pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style prev and next button */
+.prev,
+.next {
+  padding: 8px 12px;
+  background: #f6f8fa;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* color when user hover  */
+.prev:hover,
+.next:hover,
+.page:hover {
+  background: #c9d1d8;
+}
+/* page container */
+.page__container {
+  display: flex;
+  padding: 0;
+}
+/* page  */
+.page {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
+  list-style-type: none;
+}
+/* when page is selected */
+.page.active {
+  background: #0969da;
+  color: #fff;
+}

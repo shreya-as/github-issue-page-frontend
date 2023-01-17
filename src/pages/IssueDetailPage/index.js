@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
-import { issueDetailsConstants } from "./constants";
+import { issueDetailsConstants } from "./state/constants";
 import {
   initialIssueDetailsState,
   issueDetailsReducer,
-} from "./issueDetailsReducer";
+} from "./state/issueDetailsReducer";
 import "./issueDetail.css";
 import ReactMarkdown from "react-markdown";
 
