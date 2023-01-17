@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer, useState } from "react";
+import React, { useCallback, useEffect, useReducer } from "react";
 import { TbCircleDot } from "react-icons/tb";
 import axios from "axios";
 import AppSearchBar from "../../components/AppSearchBar";
@@ -13,11 +13,21 @@ import {
   getIssueFail,
   getIssuesRequest,
   getIssueSuccess,
+  updateCurrentPage,
+  updateQuery,
 } from "./state/actions";
 const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
-  const { issues, loadingIssue, totalPages, currentPage, error, query } = state;
+  const {
+    issues,
+    loadingIssue,
+    totalPages,
+    currentPage,
+    error,
+    query,
+    postsPerPage,
+  } = state;
 
   // get issue data
   const getIssues = async (currentPage) => {
@@ -34,6 +44,8 @@ const IssueListingPage = () => {
       dispatch(getIssueFail());
     }
   };
+
+  // provides a way to abort one or more DOM requests
   const controller = new AbortController();
 
   // get searched data
@@ -60,16 +72,14 @@ const IssueListingPage = () => {
   useEffect(() => {
     // call function to get list of issues
     query !== "" ? getSearchedData(currentPage) : getIssues(currentPage);
+    // abort() method on the controller to cancel the request.
     return () => controller.abort();
   }, [query, currentPage]);
   // handle change page
   const handleChangePage = useCallback(
     (newPage) => {
       // dispatch action to update page
-      dispatch({
-        type: issuePageConstants.UPDATE_CURRENT_PAGE,
-        payload: newPage,
-      });
+      dispatch(updateCurrentPage(newPage));
     },
     [dispatch]
   );
@@ -77,7 +87,7 @@ const IssueListingPage = () => {
   // handle search
   const handleSearch = useCallback(
     (search) => {
-      dispatch({ type: issuePageConstants.UPDATE_QUERY, payload: search });
+      dispatch(updateQuery(search));
     },
     [dispatch]
   );
@@ -102,7 +112,7 @@ const IssueListingPage = () => {
       </div>
       {/* pagination */}
       <Pagination
-        count={Math.ceil(totalPages / 30)}
+        count={Math.ceil(totalPages / postsPerPage)}
         handleChangePage={handleChangePage}
         currentPage={currentPage}
       />

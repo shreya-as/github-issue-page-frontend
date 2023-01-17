@@ -6,6 +6,7 @@ const initialState = {
   issues: [],
   currentPage: 0,
   totalPages: 300,
+  postsPerPage: 30,
   query: "",
 };
 const issuePageReducer = (state, action) => {
@@ -31,7 +32,6 @@ const issuePageReducer = (state, action) => {
     }
     // update query
     case issuePageConstants.UPDATE_QUERY: {
-      console.log(action, "test");
       return { ...state, query: action?.payload };
     }
     default:

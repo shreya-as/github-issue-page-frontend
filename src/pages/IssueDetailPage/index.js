@@ -7,8 +7,8 @@ import {
   issueDetailsReducer,
 } from "./state/issueDetailsReducer";
 import "./issueDetail.css";
-import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
+import Comment from "./Comment";
+
 const IssueDetailPage = () => {
   const [state, dispatch] = useReducer(
     issueDetailsReducer,
@@ -49,28 +49,7 @@ const IssueDetailPage = () => {
         </div>
 
         {/* comment section */}
-        <div className="comment__container">
-          <div className="avatar">
-            <img src={issueDetails?.user?.avatar_url} alt="Avatar" />
-          </div>
-          <div className="comment__section">
-            <div className="comment__header">
-              <strong>{issueDetails?.user?.login}</strong>
-              {/* <span>{issueDetails?.user?.login}</span> */}
-            </div>
-            {/* <div
-              className="comment__body"
-              dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(issueDetails?.body ?? ""),
-              }}
-            ></div> */}
-            <div className="comment__body">
-              <ReactMarkdown remarkPlugins={[gfm]}>
-                {issueDetails?.body?.replace(/<!--[\s\S]*?-->/g, "")}
-              </ReactMarkdown>
-            </div>
-          </div>
-        </div>
+        <Comment issueDetails={issueDetails} />
       </div>
     </>
   );

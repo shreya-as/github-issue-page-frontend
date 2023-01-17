@@ -12,3 +12,13 @@ export const getIssueSuccess = (data) => ({
 export const getIssueFail = () => ({
   type: issuePageConstants.GET_ISSUE_FAIL,
 });
+// update page
+export const updateCurrentPage = (data) => ({
+  type: issuePageConstants.UPDATE_CURRENT_PAGE,
+  payload: data,
+});
+// update query
+export const updateQuery = (data) => ({
+  type: issuePageConstants.UPDATE_QUERY,
+  payload: data,
+});
