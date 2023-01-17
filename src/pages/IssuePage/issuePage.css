@@ -27,6 +27,7 @@
   align-items: center;
   padding: 16px 0;
   font-weight: bold;
+  border-bottom: 1px solid #afb8c1;
 }
 /* style a tag */
 .title__container a {

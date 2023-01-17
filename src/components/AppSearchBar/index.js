@@ -4,12 +4,10 @@ import "./search.css";
 const AppSearchBar = () => {
   return (
     <>
-      <form>
-        <div className="search__container">
-          <input type="text" placeholder="Search issues..." />
-          <FaSearch className="search__icon" />
-        </div>
-      </form>
+      <div className="search__container">
+        <input type="text" placeholder="Search issues..." />
+        <FaSearch className="search__icon" />
+      </div>
     </>
   );
 };
