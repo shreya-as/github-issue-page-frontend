@@ -19,7 +19,7 @@ const issuePageReducer = (state, action) => {
         ...state,
         loadingIssue: false,
         error: false,
-        issues: action?.payload?.data,
+        issues: action?.payload,
       };
     }
     case issuePageConstants.GET_ISSUE_FAIL: {
@@ -28,6 +28,11 @@ const issuePageReducer = (state, action) => {
     // update current page
     case issuePageConstants.UPDATE_CURRENT_PAGE: {
       return { ...state, currentPage: action?.payload };
+    }
+    // update query
+    case issuePageConstants.UPDATE_QUERY: {
+      console.log(action, "test");
+      return { ...state, query: action?.payload };
     }
     default:
       return state;

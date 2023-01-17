@@ -39,7 +39,18 @@
   font-size: 16px;
   font-weight: 600;
 }
+/* set the max width according to screen size */
+@media only screen and (min-width: 1024px) {
+  .issue__title {
+    max-width: 700px;
+  }
+}
 
+@media only screen and (max-width: 800px) {
+  .issue__title {
+    max-width: 600px;
+  }
+}
 /* Issue Meta */
 .issue__data {
   font-size: 18px;
