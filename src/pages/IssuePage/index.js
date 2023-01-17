@@ -31,11 +31,13 @@ const IssueListingPage = () => {
   //   });
   // };
   // get issue data
-  const fetchIssues = async () => {
+  const fetchIssues = async (currentPage) => {
     dispatch({ type: issuePageConstants.GET_ISSUE_REQUEST });
     try {
       const response = await axios.get(
-        "https://api.github.com/repos/facebook/react/issues?page=1&per_page=30"
+        `https://api.github.com/repos/facebook/react/issues?page=${
+          currentPage + 1
+        }`
       );
       dispatch({
         type: issuePageConstants.GET_ISSUE_SUCCESS,
@@ -49,8 +51,8 @@ const IssueListingPage = () => {
   // run effect
   useEffect(() => {
     // call function to get list of issues
-    fetchIssues();
-  }, []);
+    fetchIssues(currentPage);
+  }, [currentPage]);
   // color for array for styling
   const labelColor = ["b60205", "9149d1"];
 

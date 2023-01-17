@@ -5,7 +5,7 @@ const initialState = {
   error: false,
   issues: [],
   currentPage: 0,
-  totalPages: 100,
+  totalPages: 300,
 };
 const issuePageReducer = (state, action) => {
   switch (action.type) {
