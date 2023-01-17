@@ -1,19 +1,53 @@
-import React from "react";
+import React, { memo, useState } from "react";
 import "./pagination.css";
 
-const Pagination = () => {
+const Pagination = ({ count, handleChangePage, currentPage }) => {
+  // handle previous
+  const handlePrev = () => {
+    if (currentPage > 0) {
+      handleChangePage(currentPage - 1);
+    }
+  };
+  // handle next
+  const handleNext = () => {
+    if (currentPage < count - 1) {
+      handleChangePage(currentPage + 1);
+    }
+  };
   return (
-    // paginaiton
+    // pagination
     <div className="pagination">
-      <button className="prev">Previous</button>
+      <button
+        className="prev"
+        onClick={handlePrev}
+        disabled={currentPage === 0}
+      >
+        Previous
+      </button>
       <ul className="page__container">
-        <li className="page active">1</li>
-        <li className="page">2</li>
-        <li className="page">3</li>
+        {[...Array(count)].map((_, page) => {
+          return (
+            <button
+              className="page"
+              id={currentPage === page ? "active" : ""}
+              key={page}
+              // disabled={currentPage === page}
+              onClick={() => handleChangePage(page)}
+            >
+              {page + 1}
+            </button>
+          );
+        })}
       </ul>
-      <button className="next">Next</button>
+      <button
+        className="next"
+        onClick={handleNext}
+        disabled={currentPage === count - 1}
+      >
+        Next
+      </button>
     </div>
   );
 };
 
-export default Pagination;
+export default memo(Pagination);

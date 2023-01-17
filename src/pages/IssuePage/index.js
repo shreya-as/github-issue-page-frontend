@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useCallback, useEffect, useReducer } from "react";
 import { TbCircleDot } from "react-icons/tb";
 import axios from "axios";
 import AppSearchBar from "../../components/AppSearchBar";
@@ -11,14 +11,31 @@ import Pagination from "../../components/Pagination";
 const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
-  const { issues, loadingIssue } = state;
-  console.log(issues, "issues");
+  const { issues, loadingIssue, totalPages, currentPage } = state;
+  console.log(currentPage, "currentPage");
+  const handleChangePage = useCallback(
+    (newPage) => {
+      // dispatch action to update page
+      dispatch({
+        type: issuePageConstants.UPDATE_CURRENT_PAGE,
+        payload: newPage,
+      });
+    },
+    [dispatch]
+  );
+  // const handleChangePage = (newPage) => {
+  //   // dispatch action to update page
+  //   dispatch({
+  //     type: issuePageConstants.UPDATE_CURRENT_PAGE,
+  //     payload: newPage,
+  //   });
+  // };
   // get issue data
-  const handleGetIssue = async () => {
+  const fetchIssues = async () => {
     dispatch({ type: issuePageConstants.GET_ISSUE_REQUEST });
     try {
       const response = await axios.get(
-        "https://api.github.com/repos/facebook/react/issues"
+        "https://api.github.com/repos/facebook/react/issues?page=1&per_page=30"
       );
       dispatch({
         type: issuePageConstants.GET_ISSUE_SUCCESS,
@@ -32,7 +49,7 @@ const IssueListingPage = () => {
   // run effect
   useEffect(() => {
     // call function to get list of issues
-    handleGetIssue();
+    fetchIssues();
   }, []);
   // color for array for styling
   const labelColor = ["b60205", "9149d1"];
@@ -105,7 +122,7 @@ const IssueListingPage = () => {
                   <TbCircleDot className="issue__svg" />
                   <div>
                     <div className="title__container">
-                      {" "}
+                      {/* navigate to issues detail page */}
                       <Link to={`issues/${number}`}>
                         <h1 className="issue__title">{title}</h1>
                       </Link>
@@ -146,7 +163,11 @@ const IssueListingPage = () => {
           </>
         )}
       </div>
-      <Pagination />
+      <Pagination
+        count={Math.ceil(totalPages / 30)}
+        handleChangePage={handleChangePage}
+        currentPage={currentPage}
+      />
     </>
   );
 };

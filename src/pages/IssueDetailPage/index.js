@@ -8,7 +8,7 @@ import {
 } from "./state/issueDetailsReducer";
 import "./issueDetail.css";
 import ReactMarkdown from "react-markdown";
-
+import gfm from "remark-gfm";
 const IssueDetailPage = () => {
   const [state, dispatch] = useReducer(
     issueDetailsReducer,
@@ -65,7 +65,7 @@ const IssueDetailPage = () => {
               }}
             ></div> */}
             <div className="comment__body">
-              <ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[gfm]}>
                 {issueDetails?.body?.replace(/<!--[\s\S]*?-->/g, "")}
               </ReactMarkdown>
             </div>

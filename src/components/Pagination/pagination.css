@@ -34,7 +34,12 @@
   list-style-type: none;
 }
 /* when page is selected */
-.page.active {
+#active {
   background: #0969da;
   color: #fff;
+}
+/* when button is disabled  */
+.prev:disabled,
+.next:disabled {
+  cursor: auto;
 }

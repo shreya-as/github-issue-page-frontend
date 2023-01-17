@@ -18,6 +18,7 @@
     "react-icons": "^4.7.1",
     "react-markdown": "^8.0.4",
     "react-router-dom": "^5.3.3",
+    "remark-gfm": "^3.0.1",
     "remarkable-react": "^1.4.3"
   },
   "devDependencies": {
