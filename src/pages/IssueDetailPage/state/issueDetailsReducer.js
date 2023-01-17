@@ -8,23 +8,18 @@ const initialIssueDetailsState = {
 const issueDetailsReducer = (state, action) => {
   switch (action.type) {
     case issueDetailsConstants.GET_ISSUE_DETAILS_REQUEST: {
-      return {
-        loadingIssueDetails: true,
-        error: false,
-      };
+      return { ...state, loadingIssueDetails: true, error: false };
     }
     case issueDetailsConstants.GET_ISSUE_DETAILS_SUCCESS: {
       return {
+        ...state,
         loadingIssueDetails: false,
         error: false,
-        issueDetails: action.payload.data,
+        issueDetails: action?.payload,
       };
     }
     case issueDetailsConstants.GET_ISSUE_DETAILS_FAIL: {
-      return {
-        loadingIssueDetails: false,
-        error: true,
-      };
+      return { ...state, loadingIssueDetails: false, error: true };
     }
     default:
       return state;

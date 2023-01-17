@@ -5,7 +5,7 @@ const Comment = ({ issueDetails }) => {
   return (
     <div className="comment__container">
       <div className="avatar">
-        <img src={issueDetails?.user?.avatar_url} alt="Avatar" />
+        <img src={issueDetails?.user?.avatar_url} alt="Avatar" loading="lazy" />
       </div>
       <div className="comment__section">
         <div className="comment__header">
