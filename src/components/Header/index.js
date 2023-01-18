@@ -1,5 +1,6 @@
 import React from "react";
 import "./header.css";
+import SubHeader from "./SubHeader";
 const Header = () => {
   return (
     <>
@@ -10,6 +11,7 @@ const Header = () => {
           <li>Issues</li>
         </ul>
       </nav>
+      <SubHeader />
     </>
   );
 };

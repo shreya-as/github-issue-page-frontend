@@ -29,3 +29,14 @@
   font-size: 1rem;
   color: var(--text-color);
 }
+
+/* sub header  */
+.sub__header {
+  padding: 1rem 7.5rem;
+  font-weight: bold;
+  border-bottom: 1px solid #afb8c1;
+  font-size: 20px;
+}
+.sub__header span {
+  color: #24292f;
+}

@@ -27,6 +27,7 @@ const IssuePageListing = ({ issues }) => {
                 <Link to={`issues/${number}`}>
                   <h1 className="issue__title">{title}</h1>
                 </Link>
+
                 {/* display labels */}
                 {labels?.map((label) => {
                   return (
@@ -45,7 +46,6 @@ const IssuePageListing = ({ issues }) => {
                   );
                 })}
               </div>
-
               <div className="issue__data">
                 <span className="issue__number">{`#${number}`}</span>
                 <span className="issue__author">
