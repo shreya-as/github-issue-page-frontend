@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { TbCircleDot } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import { getIssueCreatedTime } from "../../AppUtils/AppFunctions/dateFunctions";
+import { getIssueCreatedTime } from "../../../AppUtils/AppFunctions/dateFunctions";
 
 const IssuePageListing = ({ issues }) => {
   // array of color to change the style of text color

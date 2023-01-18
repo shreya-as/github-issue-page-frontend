@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./loader.css";
 const Loader = () => {
   return (
@@ -8,4 +8,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default memo(Loader);

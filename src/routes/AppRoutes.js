@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-const IssueDetailPage = lazy(() => import("../pages/IssueDetailPage"));
-const IssueListingPage = lazy(() => import("../pages/IssuePage"));
+const IssueDetailPage = lazy(() =>
+  import("../pages/IssueDetail/IssueDetailPage")
+);
+const IssueListingPage = lazy(() => import("../pages/Issue/IssuePage"));
 const AppRoutes = () => {
   return (
     <>

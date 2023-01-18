@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
-import { getIssueCreatedTime } from "../../AppUtils/AppFunctions/dateFunctions";
+import { getIssueCreatedTime } from "../../../AppUtils/AppFunctions/dateFunctions";
 const Comment = ({ issueDetails }) => {
   return (
     <div className="comment__container">

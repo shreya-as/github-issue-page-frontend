@@ -1,20 +1,20 @@
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
-import { issueDetailsConstants } from "./state/constants";
+import { issueDetailsConstants } from "../state/constants";
 import {
   initialIssueDetailsState,
   issueDetailsReducer,
-} from "./state/issueDetailsReducer";
+} from "../state/issueDetailsReducer";
 import "./issueDetail.css";
 import Comment from "./Comment";
 import {
   getIssueDetailsFail,
   getIssueDetailsRequest,
   getIssueDetailSuccess,
-} from "./state/actions";
-import Loader from "../../components/Loader";
-import ErrorPage from "../../components/ErrorPage";
+} from "../state/actions";
+import Loader from "../../../components/Loader";
+import ErrorPage from "../../../components/ErrorPage";
 
 const IssueDetailPage = () => {
   const [state, dispatch] = useReducer(

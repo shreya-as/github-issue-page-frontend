@@ -16,7 +16,6 @@ export const getIssueCreatedTime = (date) => {
   const weeks = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7));
   const months = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 30));
   const options = { month: "short", day: "numeric", year: "numeric" }; //specifies the format of the date.
-  console.log(minutes, "minutes");
   return minutes === 0
     ? `now.`
     : minutes < 60

@@ -1,21 +1,21 @@
 import React, { useCallback, useEffect, useReducer } from "react";
 import { TbCircleDot } from "react-icons/tb";
 import axios from "axios";
-import AppSearchBar from "../../components/AppSearchBar";
-import { issuePageConstants } from "./state/constants";
-import { initialState, issuePageReducer } from "./state/issuePageReducer";
-import Loader from "../../components/Loader";
+import AppSearchBar from "../../../components/AppSearchBar";
+import { issuePageConstants } from "../state/constants";
+import { initialState, issuePageReducer } from "../state/issuePageReducer";
+import Loader from "../../../components/Loader";
 import "./issuePage.css";
-import Pagination from "../../components/Pagination";
+import Pagination from "../../../components/Pagination";
 import IssuePageListing from "./IssuePageListing";
-import ErrorPage from "../../components/ErrorPage";
+import ErrorPage from "../../../components/ErrorPage";
 import {
   getIssueFail,
   getIssuesRequest,
   getIssueSuccess,
   updateCurrentPage,
   updateQuery,
-} from "./state/actions";
+} from "../state/actions";
 const IssueListingPage = () => {
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
@@ -83,7 +83,7 @@ const IssueListingPage = () => {
   // handle search
   const handleSearch = useCallback(
     (search) => {
-      dispatch(updateQuery(search));
+      dispatch(updateQuery(search)); // dispatch action to update query
     },
     [dispatch]
   );
