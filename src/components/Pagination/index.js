@@ -4,7 +4,6 @@ import { MdLastPage, MdFirstPage } from "react-icons/md";
 import "./pagination.css";
 
 const Pagination = ({ count, handleChangePage, currentPage }) => {
-  console.log(count, "count");
   // handle previous
   const handlePrev = () => {
     currentPage > 0 && handleChangePage(currentPage - 1);

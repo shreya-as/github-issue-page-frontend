@@ -16,7 +16,6 @@ import {
 } from "../state/actions";
 import "./issuePage.css";
 const IssueListingPage = () => {
-  console.log("i am listing page");
   //define state of issue listing page
   const [state, dispatch] = useReducer(issuePageReducer, initialState);
   const {
