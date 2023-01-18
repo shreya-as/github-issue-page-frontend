@@ -17,7 +17,7 @@
 
 /* Title Container */
 .title__container {
-  display: flex;
+  /* display: inline-flex; */
   align-items: center;
   font-size: 16px;
 }
@@ -32,6 +32,10 @@
 /* style a tag */
 .title__container a {
   text-decoration: none;
+}
+/* issue container */
+.issue__title--container {
+  display: inline-block;
 }
 /* Issue Title */
 .issue__title {

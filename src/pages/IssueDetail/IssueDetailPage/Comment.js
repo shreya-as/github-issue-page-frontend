@@ -4,6 +4,7 @@ import gfm from "remark-gfm";
 import { getIssueCreatedTime } from "../../../AppUtils/AppFunctions/dateFunctions";
 const Comment = ({ issueDetails }) => {
   return (
+    // comment container
     <div className="comment__container">
       <div className="avatar">
         <img src={issueDetails?.user?.avatar_url} alt="Avatar" loading="lazy" />
@@ -18,7 +19,7 @@ const Comment = ({ issueDetails }) => {
 
         <div className="comment__body">
           <ReactMarkdown remarkPlugins={[gfm]}>
-            {/* remove comment from body */}
+            {/*replace is used remove comment from issue details body */}
             {issueDetails?.body?.replace(/<!--[\s\S]*?-->/g, "")}
           </ReactMarkdown>
         </div>

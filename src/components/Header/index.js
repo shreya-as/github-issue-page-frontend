@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import "./header.css";
 import SubHeader from "./SubHeader";
 const Header = () => {
@@ -16,4 +16,4 @@ const Header = () => {
   );
 };
 
-export default memo(Header);
+export default Header;

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const SubHeader = () => {
@@ -11,4 +11,4 @@ const SubHeader = () => {
   );
 };
 
-export default memo(SubHeader);
+export default SubHeader;

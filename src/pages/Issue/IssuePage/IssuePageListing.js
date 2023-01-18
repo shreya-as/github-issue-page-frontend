@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { TbCircleDot } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { getIssueCreatedTime } from "../../../AppUtils/AppFunctions/dateFunctions";
@@ -24,10 +24,11 @@ const IssuePageListing = ({ issues }) => {
             <div>
               <div className="title__container">
                 {/* navigate to issues detail page */}
-                <Link to={`issues/${number}`}>
-                  <h1 className="issue__title">{title}</h1>
-                </Link>
-
+                <div className="issue__title--container">
+                  <Link to={`issues/${number}`}>
+                    <h1 className="issue__title">{title}</h1>
+                  </Link>
+                </div>
                 {/* display labels */}
                 {labels?.map((label) => {
                   return (
@@ -63,4 +64,4 @@ const IssuePageListing = ({ issues }) => {
   );
 };
 
-export default memo(IssuePageListing);
+export default IssuePageListing;
