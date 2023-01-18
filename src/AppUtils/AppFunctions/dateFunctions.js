@@ -1,9 +1,9 @@
 // calculate time
 export const getIssueCreatedTime = (date) => {
-  // Create a new Date object from the input date
+  // create a new Date object from the input date
   const updatedDate = new Date(date);
 
-  // Get the current date
+  // get the current date
   const currentDate = new Date();
 
   // Calculate the time in milliseconds
