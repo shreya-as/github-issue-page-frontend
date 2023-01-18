@@ -17,14 +17,15 @@ import Loader from "../../../components/Loader";
 import ErrorPage from "../../../components/ErrorPage";
 
 const IssueDetailPage = () => {
+  //define state of issue detail page
   const [state, dispatch] = useReducer(
     issueDetailsReducer,
     initialIssueDetailsState
   );
   const { issueDetails, loadingIssueDetails, comments, detailError } = state;
-  // use the `useParams` hook here to access
-  // the dynamic pieces of the URL.
-  let { id } = useParams();
+  // use the `useParams` hook here to access the dynamic pieces of the URL.
+  const { id } = useParams();
+
   // get issue data
   const handleGetIssueDetails = async () => {
     dispatch(getIssueDetailsRequest());
@@ -63,6 +64,7 @@ const IssueDetailPage = () => {
           </div>
           {/* comment section */}
           <Comment issueDetails={issueDetails} />
+          {/* sub comments */}
           {comments?.map((comment) => (
             <Comment issueDetails={comment} key={comment?.id} />
           ))}

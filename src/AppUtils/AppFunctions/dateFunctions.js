@@ -8,7 +8,7 @@ export const getIssueCreatedTime = (date) => {
 
   // Calculate the time in milliseconds
   const timeDiff = currentDate - updatedDate;
-  console.log(timeDiff, "timeDiff");
+
   // Calculate the number of hours, days, weeks, and months that have passed
   const minutes = Math.floor(timeDiff / (1000 * 60));
   const hours = Math.floor(timeDiff / (1000 * 60 * 60));

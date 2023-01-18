@@ -5,6 +5,7 @@ import AppRoutes from "./routes/AppRoutes";
 const App = () => {
   return (
     <>
+      {/* display layout  */}
       <Layout>
         <AppRoutes />
       </Layout>

@@ -1,5 +1,5 @@
 import { issuePageConstants } from "./constants";
-
+// initial state
 const initialState = {
   loadingIssue: false,
   error: false,
@@ -11,10 +11,11 @@ const initialState = {
 };
 const issuePageReducer = (state, action) => {
   switch (action.type) {
-    // get issues
+    // get issues request
     case issuePageConstants.GET_ISSUE_REQUEST: {
       return { ...state, loadingIssue: true, error: false };
     }
+    // get issue success
     case issuePageConstants.GET_ISSUE_SUCCESS: {
       return {
         ...state,
@@ -23,6 +24,7 @@ const issuePageReducer = (state, action) => {
         issues: action?.payload,
       };
     }
+    // get issue fail
     case issuePageConstants.GET_ISSUE_FAIL: {
       return { ...state, loadingIssue: false, error: true };
     }

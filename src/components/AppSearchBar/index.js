@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./search.css";
 const AppSearchBar = ({ handleSearch }) => {
+  // set the user input value
   const handleChange = ({ target: { value } }) => {
     handleSearch(value);
   };

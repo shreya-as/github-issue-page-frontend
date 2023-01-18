@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { MdLastPage, MdFirstPage } from "react-icons/md";
-import { GrFormPrevious } from "react-icons/gr";
 
 import "./pagination.css";
 
@@ -25,9 +24,12 @@ const Pagination = ({ count, handleChangePage, currentPage }) => {
   return (
     // pagination
     <div className="pagination">
+      {/* first page button */}
       <button className="page" onClick={handleFirst}>
         <MdFirstPage />
       </button>
+
+      {/* previous button */}
       <button
         className="prev"
         onClick={handlePrev}
@@ -36,10 +38,9 @@ const Pagination = ({ count, handleChangePage, currentPage }) => {
         {/* <GrFormPrevious /> */}
         Previous
       </button>
+
+      {/* pages */}
       <div className="page__container">
-        {/* {currentPage < count - 2 && count > 3 && (
-          <span className="page">...</span>
-        )} */}
         {[...Array(count)].map((_, page) => {
           return (
             <button
@@ -53,6 +54,8 @@ const Pagination = ({ count, handleChangePage, currentPage }) => {
           );
         })}
       </div>
+
+      {/* next button */}
       <button
         className="next"
         onClick={handleNext}
@@ -60,6 +63,8 @@ const Pagination = ({ count, handleChangePage, currentPage }) => {
       >
         Next
       </button>
+
+      {/* last page button */}
       <button className="page" onClick={handleLast}>
         <MdLastPage />
       </button>

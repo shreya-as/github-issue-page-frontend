@@ -1,4 +1,4 @@
-/* Container for the list of issues */
+/*container for the list of issues */
 .detail__container {
   max-width: 1280px;
   margin: auto;
@@ -9,29 +9,29 @@
   color: #24292f;
   font-size: 30px;
 }
-/* Title Container */
+/* title Container */
 .detail__title--container {
   /* display: flex; */
   line-height: 1.2;
   word-break: break-word;
   overflow-wrap: break-word;
 }
-/* Issue number */
+/* issue number */
 .detail__issue--number {
   margin-left: 10px;
   font-size: 30px;
   color: #555;
 }
 
-/* Container for the list of issues */
+/* container for the list of issues */
 .comment__header {
   display: flex;
-  /* border: 1px solid #d0d7de; */
   border-radius: 6px;
   width: 100%;
   padding: 10px;
   background-color: #f6f8fa;
 }
+
 /* comment container */
 .comment__container {
   display: flex;
@@ -53,7 +53,7 @@
   width: 100%;
   height: auto;
 }
-
+/* comment section */
 .comment__section {
   flex: 1;
   border: 1px solid #d0d7de;
