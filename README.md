@@ -1,4 +1,4 @@
-# Steps to run app
+# steps to run app in dev mode
 
 1. clone repo
 2. run command npm i
