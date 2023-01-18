@@ -1,6 +1,5 @@
-# github-issue-page-frontend
-
 # Steps to run app
 
-1)npm i
-2)npm start
+1. clone repo
+2. run command npm i
+3. run command npm start
