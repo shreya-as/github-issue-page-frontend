@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import ReactMarkdown from "react-markdown";
 import gfm from "remark-gfm";
+import { getIssueCreatedTime } from "../../AppUtils/AppFunctions/dateFunctions";
 const Comment = ({ issueDetails }) => {
   return (
     <div className="comment__container">
@@ -9,12 +10,15 @@ const Comment = ({ issueDetails }) => {
       </div>
       <div className="comment__section">
         <div className="comment__header">
-          <strong>{issueDetails?.user?.login}</strong>
-          {/* <span>{issueDetails?.user?.login}</span> */}
+          <strong className="issue__author">{issueDetails?.user?.login}</strong>
+          <span>{`commented ${getIssueCreatedTime(
+            issueDetails?.created_at
+          )}`}</span>
         </div>
 
         <div className="comment__body">
           <ReactMarkdown remarkPlugins={[gfm]}>
+            {/* remove comment from body */}
             {issueDetails?.body?.replace(/<!--[\s\S]*?-->/g, "")}
           </ReactMarkdown>
         </div>

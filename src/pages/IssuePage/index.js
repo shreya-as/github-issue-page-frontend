@@ -31,7 +31,7 @@ const IssueListingPage = () => {
 
   // get issue data
   const getIssues = async (currentPage) => {
-    dispatch(getIssuesRequest());
+    dispatch(getIssuesRequest()); //dispatch request action
     try {
       const { data } = await axios.get(
         `https://api.github.com/repos/facebook/react/issues?page=${
@@ -40,7 +40,6 @@ const IssueListingPage = () => {
       );
       dispatch(getIssueSuccess(data));
     } catch (error) {
-      console.log(error, "error");
       dispatch(getIssueFail());
     }
   };
@@ -68,18 +67,15 @@ const IssueListingPage = () => {
         : dispatch(getIssueFail());
     }
   };
-  // call search data if query is not empty else call fetch issues
   useEffect(() => {
-    // call function to get list of issues
-    query !== "" ? getSearchedData(currentPage) : getIssues(currentPage);
-    // abort() method on the controller to cancel the request.
-    return () => controller.abort();
+    query !== "" ? getSearchedData(currentPage) : getIssues(currentPage); // call search data if query is not empty else call fetch issues
+    return () => controller.abort(); // abort() method on the controller to cancel the request.
   }, [query, currentPage]);
+
   // handle change page
   const handleChangePage = useCallback(
     (newPage) => {
-      // dispatch action to update page
-      dispatch(updateCurrentPage(newPage));
+      dispatch(updateCurrentPage(newPage)); // dispatch action to update page
     },
     [dispatch]
   );
@@ -110,6 +106,7 @@ const IssueListingPage = () => {
           <IssuePageListing issues={issues} />
         )}
       </div>
+
       {/* pagination */}
       <Pagination
         count={Math.ceil(totalPages / postsPerPage)}

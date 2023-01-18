@@ -11,8 +11,10 @@
 }
 /* Title Container */
 .detail__title--container {
-  display: flex;
+  /* display: flex; */
   line-height: 1.2;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 /* Issue number */
 .detail__issue--number {
@@ -61,4 +63,8 @@
 .comment__body {
   padding: 10px;
   border-top: 1px solid #d0d7de;
+}
+/* style author  */
+.issue__author {
+  margin-right: 4px;
 }

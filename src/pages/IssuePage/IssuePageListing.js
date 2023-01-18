@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getIssueCreatedTime } from "../../AppUtils/AppFunctions/dateFunctions";
 
 const IssuePageListing = ({ issues }) => {
-  // color for array for styling
+  // array of color to change the style of text color
   const labelColor = ["b60205", "9149d1"];
   return (
     <>

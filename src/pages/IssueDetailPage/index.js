@@ -14,14 +14,14 @@ import {
   getIssueDetailSuccess,
 } from "./state/actions";
 import Loader from "../../components/Loader";
+import ErrorPage from "../../components/ErrorPage";
 
 const IssueDetailPage = () => {
   const [state, dispatch] = useReducer(
     issueDetailsReducer,
     initialIssueDetailsState
   );
-  const { issueDetails, loadingIssueDetails } = state;
-  console.log(issueDetails, "issueDetails");
+  const { issueDetails, loadingIssueDetails, comments, detailError } = state;
   // use the `useParams` hook here to access
   // the dynamic pieces of the URL.
   let { id } = useParams();
@@ -32,20 +32,27 @@ const IssueDetailPage = () => {
       const { data } = await axios.get(
         `https://api.github.com/repos/facebook/react/issues/${id}`
       );
-      dispatch(getIssueDetailSuccess(data));
+      // fetch comments
+      const { data: comments } = await axios.get(data?.comments_url);
+      dispatch(
+        getIssueDetailSuccess({ issueDetails: data, comments: comments })
+      );
     } catch (error) {
       dispatch(getIssueDetailsFail());
     }
   };
+
+  //get issue details
   useEffect(() => {
     handleGetIssueDetails();
   }, []);
   return (
     <>
-      {/* 25874 */}
       {/* issue detail container */}
       {loadingIssueDetails ? (
         <Loader />
+      ) : detailError ? (
+        <ErrorPage />
       ) : (
         <div className="detail__container">
           <div className="detail__title--container">
@@ -54,9 +61,11 @@ const IssueDetailPage = () => {
               #{issueDetails?.number}
             </span>
           </div>
-
           {/* comment section */}
           <Comment issueDetails={issueDetails} />
+          {comments?.map((comment) => (
+            <Comment issueDetails={comment} key={comment?.id} />
+          ))}
         </div>
       )}
     </>
